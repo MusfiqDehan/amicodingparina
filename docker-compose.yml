@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    image: amicodingparina-image:v0.1.0
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    container_name: amicodingparina-container
+    volumes:
+      - .:/amicodingparina
+    ports:
+      - "8000:8000"
