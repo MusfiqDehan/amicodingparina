@@ -40,7 +40,7 @@
 - **Containerization:** Docker
 - **Editor:** VS Code
 - **Operating System:** WSL2 (Ubuntu 22.04 LTS)
-- **Browser:** Google Chrome, Microsoft Edge
+- **Browser(Tested On):** Google Chrome, Microsoft Edge, Brave Browser
 
 [⬆️**Go to Table of Contents**](#table-of-contents)
 
