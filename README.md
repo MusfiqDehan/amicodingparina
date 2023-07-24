@@ -20,7 +20,7 @@
 - [Added Features](#added-features)
 - [How to Run Locally](#how-to-run-locally) 
     - [From GitHub](#from-github)
-    - [From Focker](#from-docker)
+    - [From Docker](#from-docker)
 - [API Details](#api-details)
 
 ## Necessary Links
