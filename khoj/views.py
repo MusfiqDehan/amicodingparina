@@ -53,3 +53,38 @@ def logoutUser(request):
 def home(request):
     context = {}
     return render(request, 'khoj/home.html', context)
+
+
+@login_required(login_url='khoj:login')
+def search_view(request):
+    if request.method == 'POST':
+        form = InputForm(request.POST)
+        if form.is_valid():
+            # Get the input values
+            input_values = map(
+                int, form.cleaned_data['input_values'].split(','))
+
+            # Sort the input values in descending order
+            sorted_input_values = sorted(input_values, reverse=True)
+
+            # Convert the sorted input values to a string [Unpacking array]
+            sorted_input_values_str = ', '.join(
+                str(num) for num in sorted_input_values)
+
+            # Create an instance of Input with sorted input values
+            input_instance = Input(
+                input_values=sorted_input_values_str, user=request.user)
+            input_instance.save()
+
+            # Check if the search value is in the sorted input values
+            # Ensure you have a 'search_value' field in your form
+            search_value = form.cleaned_data['search_value']
+            if search_value in sorted_input_values:
+                result = True
+            else:
+                result = False
+
+            return render(request, 'khoj/search.html', {'form': form, 'result': result})
+    else:
+        form = InputForm()
+    return render(request, 'khoj/search.html', {'form': form})
