@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Static Files -->
+	<link rel="stylesheet" type="text/css" href="{% static '/news/css/register.css' %}">
+	<link rel="shortcut icon" type="icon" href="{% static '/news/favicon.ico' %}">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+		integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
+
+	<title>খোঁজ দ্যা সার্চ । আমি কোডিং পারি না</title>
+
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background-image: url("https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80");
+			background-size: cover;
+      		background-position: center;
+			font-family: 'Hind Siliguri', sans-serif;
+		}
+
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: transparent;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+			backdrop-filter: blur(5px);
+		}
+
+		input {
+			background-color: transparent!important;
+			color: #fff!important;
+			border: 2px solid #fff!important;
+		}
+
+		input::placeholder {
+			color: #fff!important;
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title {
+			color: #fff;
+
+		}
+
+		a {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		.login_btn {
+			width: 100%;
+			background: transparent !important;
+			color: white !important;
+			border: 2px solid #fff;
+			border-radius: 1rem;
+		}
+
+		.login_btn:hover {
+			width: 100%;
+			background: #fff !important;
+			color: #000 !important;
+			border: 2px solid #fff;
+		}
+
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		.login_container {
+			padding: 0 2rem;
+		}
+
+		.input-group-text {
+			background: transparent !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+		#messages {
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<h3 id="form-title">খোঁজ দ্যা সার্চ</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+
+					<form method="POST" action="">
+						{% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.input_values}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.search_value}}
+						</div>
+
+
+
+						<div class="d-flex justify-content-center mt-3 login_container">
+							<input class="btn login_btn" type="submit" value="খোঁজ">
+						</div>
+
+					</form>
+				</div>
+
+				{{form.errors}}
+
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links text-white">
+						<h4>Result: {{ result }}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		// Adding placeholder to form fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder = 'Input Values..';
+		form_fields[2].placeholder = 'Search Value..';
+
+		for (var field in form_fields) {
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+</body>
+
+</html>
