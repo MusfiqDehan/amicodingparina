@@ -13,3 +13,4 @@
 - How to Run
     - [Locally](#)
     - [Using Docker](#)
+- [API Details](#)
