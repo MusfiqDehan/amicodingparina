@@ -10,15 +10,18 @@
 
 - [Necessary Links](#necessary-links)
 - [Technology Used](#technology-used)
-- [How to Run](#how-to-run) 
-    - [Locally](#locally)
-    - [Using Docker](#using-docker)
+- [How to Run Locally](#how-to-run-locally) 
+    - [From GitHub](#from-github)
+    - [From Focker](#from-docker)
 - [API Details](#api-details)
 
 ## Necessary Links
 
 - **Live Link:** https://ami-coding-pari-na.onrender.com
 - **API Endpoint:** https://ami-coding-pari-na.onrender.com/api/v1/items/
+- **Docker Image Link:** https://hub.docker.com/r/musfiqdehan/amicodingparina-image
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
 ## Technology Used
 
@@ -27,14 +30,18 @@
 - **Database:** SQLite3
 - **Deployment:** Render
 - **API:** Django-Tastypie=0.14.5
-- **Version Control:** Git
+- **Version Control:** Git, GitHub
+- **Containerization:** Docker
 - **Editor:** VS Code
 - **Operating System:** WSL2 (Ubuntu 22.04 LTS)
 - **Browser:** Google Chrome, Microsoft Edge
 
-## How to Run
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
-### Locally
+
+## How to Run Locally
+
+### From GitHub
 
 - Install Python 3.10.6
 - Install pip
@@ -74,29 +81,30 @@ python manage.py runserver 8080
 - Open the browser and go to http://127.0.0.1:8080/
 - To deactivate the virtual environment
 ```bash
-exit
+deactivate
 ```
 
-### Using Docker
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
-- Clone the repository
-```bash
-git clone https://github.com/MusfiqDehan/amicodingparina.git
-```
-- Go to the project directory
-```bash
-cd amicodingparina
-```
+### From Docker
 
-- Build the docker image
+- Pull the docker image
 ```bash
-docker build -t ami-coding-pari-na .
-```
+docker pull musfiqdehan/amicodingparina:v0.1.0
+``` 
 - Run the docker container
 ```bash
-docker run -p 8000:8000 ami-coding-pari-na
+docker run -p 8000:8000 musfiqdehan/amicodingparina:v0.1.0
 ```
 - Open the browser and go to http://localhost:8000
+
+- Remove the docker image
+```bash
+docker rmi musfiqdehan/amicodingparina:v0.1.0
+```
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
+
 
 ## API Details
 
@@ -121,6 +129,29 @@ docker run -p 8000:8000 ami-coding-pari-na
         - `user_id=1` specifies the user.
 
     - The datetime format used in the URL is the **ISO 8601 Datetime Format:** `YYYY-MM-DDTHH:MM:SSZ`. This format is recognized by Django and many other web frameworks.
+    
+    - <details>
+        <summary>YYYY-MM-DDTHH:MM:SSZ</summary>
+        Each character in this string has a specific meaning:
 
+        `YYYY`: Represents a four-digit year. For example, 2023.
+
+        `MM`: Represents a two-digit month. For example, 07 for July.
+
+        `DD`: Represents a two-digit day of the month. For example, 24 for the 24th day of the month.
+
+        `T`: Is a delimiter that separates the date from the time.
+
+        `HH`: Represents a two-digit hour in 24-hour format. For example, 13 for 1 PM.
+
+        `MM`: Represents a two-digit minute. For example, 30 for half-past the hour.
+
+        `SS`: Represents a two-digit second. For example, 45 for 45 seconds past the minute.
+
+        `Z`: Indicates that the time is in Coordinated Universal Time (UTC). In other words, it is a 0 offset, equivalent to writing the time as "2012-02-09T12:22:09.144+0:00".
+
+    </details>
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
 
 
