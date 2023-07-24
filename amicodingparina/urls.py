@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from api.models import InputResource
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 input_resource = InputResource()
 
@@ -9,3 +10,5 @@ urlpatterns = [
     path('', include('khoj.urls')),
     path('api/v1/', include(input_resource.urls)),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
