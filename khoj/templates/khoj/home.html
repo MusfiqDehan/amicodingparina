@@ -78,9 +78,9 @@
         <p>তাহলে দেরি কেন? কোডিং শিখতে লগিন করুন এখনি</p>
         <div class="landing-text">👇</div>
         {% if user.is_authenticated %}              
-            <a class="login-button" href="{% url 'news:logout' %}">Logout(<strong>{{request.user}}</strong>)</a>
+            <a class="login-button" href="{% url 'khoj:logout' %}">Logout(<strong>{{request.user}}</strong>)</a>
         {% else %}
-            <a class="login-button" href="{% url 'news:login' %}">Login</a>
+            <a class="login-button" href="{% url 'khoj:login' %}">Login</a>
         {% endif %}
     </div>
 
