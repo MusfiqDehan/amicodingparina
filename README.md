@@ -1,6 +1,12 @@
 <div align="center">
     <h1>আমি কোডিং পারি না!</h1>
-    A Python-Django Project
+    A Python-Django Project with REST API, it is deployed on render and containerized using docker
+    <br>
+    <br>
+    <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue">
+    <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green">
+    <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white">
+    <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white">
     <br>
     <br>
     <img src="static/homepage.png">
