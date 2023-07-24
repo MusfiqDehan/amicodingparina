@@ -15,6 +15,7 @@
 ## Table of Contents
 
 - [Necessary Links](#necessary-links)
+- [Easy Login Info](#easy-login-info)
 - [Technology Used](#technology-used)
 - [How to Run Locally](#how-to-run-locally) 
     - [From GitHub](#from-github)
@@ -26,6 +27,13 @@
 - **Live Link:** https://ami-coding-pari-na.onrender.com
 - **API Endpoint:** https://ami-coding-pari-na.onrender.com/api/v1/items/
 - **Docker Image Link:** https://hub.docker.com/r/musfiqdehan/amicodingparina-image
+
+## Easy Login Info
+
+To login as a user/admin, you can use the following credentials:
+
+- Username: `admin`
+- Password: `admin`
 
 [⬆️**Go to Table of Contents**](#table-of-contents)
 
