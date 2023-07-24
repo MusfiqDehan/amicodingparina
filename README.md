@@ -11,6 +11,3 @@
 - How to Run
     - [Locally](#)
     - [Using Docker](#)
-
-
-
