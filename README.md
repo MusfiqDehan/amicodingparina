@@ -17,6 +17,7 @@
 - [Necessary Links](#necessary-links)
 - [Easy Login Info](#easy-login-info)
 - [Technology Used](#technology-used)
+- [Added Features](#added-features)
 - [How to Run Locally](#how-to-run-locally) 
     - [From GitHub](#from-github)
     - [From Focker](#from-docker)
@@ -51,6 +52,36 @@ To login as a user/admin, you can use the following credentials:
 - **Browser(Tested On):** Google Chrome, Microsoft Edge, Brave Browser
 
 [⬆️**Go to Table of Contents**](#table-of-contents)
+
+
+## Added Features
+
+- **User Authentication:** Users can register and login to the website. 
+
+- **Khoj the search Page:**
+
+    - After login, users can access this page.
+    - Khoj the search: In this segment(page), there are two input fields
+    - **Input Values:** User can input comma separated integers
+    - **Search Value:** User can input only one integer 
+    - **Output:** Print True if the search value is in the input values. Otherwise print False
+
+- **API Endpoints:**
+
+    - In this section, there is only one API endpoint
+    - Endpoint 1: Get All Input Values
+    - User can also get filtered output using different parameters (start_datetime, end_datetime, user_id) 
+    - For more info about API visit [API Details](#api-details)
+
+- **Deployment:** The project is deployed deployed on render.
+
+- **Containerization:** The project is containerized using docker.
+
+- **Frontend Design:** Tried to make the frontend design as creative as possible.
+
+
+[⬆️**Go to Table of Contents**](#table-of-contents)
+
 
 
 ## How to Run Locally
