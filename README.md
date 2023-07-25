@@ -26,7 +26,7 @@
 ## Necessary Links
 
 - **Live Link:** https://ami-coding-pari-na.onrender.com
-- **API Endpoint:** https://ami-coding-pari-na.onrender.com/api/v1/items/
+- **API Endpoint (Token based authentication enabled):** https://ami-coding-pari-na.onrender.com/api/v1/items/
 - **Docker Image Link:** https://hub.docker.com/r/musfiqdehan/amicodingparina-image
 
 ## Easy Login Info
@@ -71,6 +71,7 @@ To login as a user/admin, you can use the following credentials:
     - In this section, there is only one API endpoint
     - Endpoint 1: Get All Input Values
     - User can also get filtered output using different parameters (start_datetime, end_datetime, user_id) 
+    - Token based API authentication is used
     - For more info about API visit [API Details](#api-details)
 
 - **Deployment:** The project is deployed deployed on render.
@@ -159,6 +160,18 @@ docker rmi musfiqdehan/amicodingparina:v0.1.0
     - `start_datetime=[datetime]`
     - `end_datetime=[datetime]`
     - `user_id=[integer]`
+- **Authentication:** Token Based Authentication
+    - To get resources from the API, you need to pass the token in the Authorization header of the request.
+    - After login, you have to go to https://ami-coding-pari-na.onrender.com/generate_api_key/ to generate the token.
+    - Then you have to pass the token in the Authorization header of the request.
+    - Example:
+    ```bash
+    curl -H "Authorization: ApiKey username:apikey" https://ami-coding-pari-na.onrender.com/api/v1/items/
+    ```
+    - **Note:** Replace `username` and `apikey` with your username and apikey respectively.
+    - You can also use Postman, python requests library, etc. to make the request and test the API.
+
+
 - **Example:** 
 
     - To include multiple parameters in the URL, you can use the ? character to start the query string and the & character to separate each key-value pair.
