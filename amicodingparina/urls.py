@@ -12,3 +12,4 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+handler404 = 'khoj.views.page_not_found_view'
