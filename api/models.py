@@ -1,5 +1,6 @@
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
+from tastypie.authentication import ApiKeyAuthentication
 from tastypie.exceptions import BadRequest
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
@@ -12,6 +13,7 @@ class InputResource(ModelResource):
         queryset = Input.objects.all()
         resource_name = 'items'
         authorization = Authorization()
+        authentication = ApiKeyAuthentication()
         always_return_data = True
         allowed_methods = ['get']
 
