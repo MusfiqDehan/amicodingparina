@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout/', views.logoutUser, name="logout"),
 
     path('', views.home, name="home"),
-    path('search/', views.search_view, name="search_view")
+    path('search/', views.search_view, name="search_view"),
+    path('generate_api_key/', views.generate_api_key, name='generate_api_key')
 ]

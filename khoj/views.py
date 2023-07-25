@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from tastypie.models import ApiKey
 
 from .models import *
 from .forms import *
@@ -88,3 +89,18 @@ def search_view(request):
     else:
         form = InputForm()
     return render(request, 'khoj/search.html', {'form': form})
+
+
+@login_required
+def generate_api_key(request):
+    api_key, created = ApiKey.objects.get_or_create(user=request.user)
+    if created:
+        generated_key = api_key.key
+    else:
+        generated_key = api_key.key
+
+    return render(request, 'khoj/generate_api_key.html', {'generated_key': generated_key})
+
+
+def page_not_found_view(request, exception):
+    return render(request, "khoj/404.html", {})
